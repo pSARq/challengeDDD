@@ -62,50 +62,43 @@ public class Jefe extends AggregateEvent<IdJefe> {
     }
 
     public void modificarArea(Area area){
-        Objects.requireNonNull(Area);
+        Objects.requireNonNull(area);
         appendChange(new ModificadaArea(area));
     }
 
-    public void modificarNombreEmbalador(IdEmbalador idEmbalador, Nombre nombre){
-        Objects.requireNonNull(idEmbalador);
+    public void modificarNombreEmbalador(Nombre nombre){
         Objects.requireNonNull(nombre);
-        appendChange(new ModificadoNombreEmbalador(idEmbalador, nombre));
+        appendChange(new ModificadoNombreEmbalador(nombre));
     }
 
-    public void modificarNumeroCelularEmbalador(IdEmbalador idEmbalador, NumeroCelular numeroCelular){
-        Objects.requireNonNull(idEmbalador);
+    public void modificarNumeroCelularEmbalador(NumeroCelular numeroCelular){
         Objects.requireNonNull(numeroCelular);
-        appendChange(new ModificadoNumeroCelularEmbalador(idEmbalador, numeroCelular));
+        appendChange(new ModificadoNumeroCelularEmbalador(numeroCelular));
     }
 
-    public void modificarTipoEmbaladoraEmbalador(IdEmbalador idEmbalador, NumeroCelular numeroCelular){
-        Objects.requireNonNull(idEmbalador);
+    public void modificarTipoEmbaladoraEmbalador(NumeroCelular numeroCelular){
         Objects.requireNonNull(numeroCelular);
-        appendChange(new ModificadaTipoEmbaladoraEmbalador(idEmbalador, numeroCelular));
+        appendChange(new ModificadaTipoEmbaladoraEmbalador(numeroCelular));
     }
 
-    public void modificarNombreSupervisor(IdSupervisor idSupervisor, Nombre nombre){
-        Objects.requireNonNull(idSupervisor);
+    public void modificarNombreSupervisor(Nombre nombre){
         Objects.requireNonNull(nombre);
-        appendChange(new ModificadoNombreSupervisor(idSupervisor, nombre));
+        appendChange(new ModificadoNombreSupervisor(nombre));
     }
 
-    public void modificarNumeroCelularSupervisor(IdSupervisor idSupervisor, NumeroCelular numeroCelular){
-        Objects.requireNonNull(idSupervisor);
+    public void modificarNumeroCelularSupervisor(NumeroCelular numeroCelular){
         Objects.requireNonNull(numeroCelular);
-        appendChange(new ModificadoNumeroCelularSupervisor(idSupervisor, numeroCelular));
+        appendChange(new ModificadoNumeroCelularSupervisor(numeroCelular));
     }
 
-    public void modificarPersonalPatioSupervisor(IdSupervisor idSupervisor, IdPersonalPatio idPersonalPatio){
-        Objects.requireNonNull(idSupervisor);
+    public void modificarPersonalPatioSupervisor(IdPersonalPatio idPersonalPatio){
         Objects.requireNonNull(idPersonalPatio);
-        appendChange(new ModificadoPersonalPatioSupervisor(idSupervisor, idPersonalPatio));
+        appendChange(new ModificadoPersonalPatioSupervisor(idPersonalPatio));
     }
 
-    public void modificarPersonalCosechaSupervisor(IdSupervisor idSupervisor, IdPersonalCosecha idPersonalCosecha){
-        Objects.requireNonNull(idSupervisor);
+    public void modificarPersonalCosechaSupervisor(IdPersonalCosecha idPersonalCosecha){
         Objects.requireNonNull(idPersonalCosecha);
-        appendChange(new ModificadoPersonalCosechaSupervisor(idSupervisor, idPersonalCosecha));
+        appendChange(new ModificadoPersonalCosechaSupervisor(idPersonalCosecha));
     }
 
     public void AgregarInformeMateriaPrimaSupervisor(InformeMateriaPrima informeMateriaPrima){
