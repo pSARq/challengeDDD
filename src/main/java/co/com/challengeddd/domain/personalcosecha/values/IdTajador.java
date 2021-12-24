@@ -1,4 +1,18 @@
-package co.com.challengeDDD.domain.personalcosecha.values;
+package co.com.challengeddd.domain.personalcosecha.values;
 
-public class IdTajador {
+import co.com.sofka.domain.generic.Identity;
+
+public class IdTajador extends Identity {
+
+    public IdTajador(){
+
+    }
+
+    private IdTajador(String id){
+        super(id);
+    }
+
+    public static IdTajador of(String id){
+        return new IdTajador(id);
+    }
 }
