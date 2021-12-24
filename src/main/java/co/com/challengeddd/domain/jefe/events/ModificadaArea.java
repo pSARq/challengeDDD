@@ -1,4 +1,4 @@
 package co.com.challengeddd.domain.jefe.events;
 
-public class CreadoInformeMateriaPrimaSupervisor {
+public class ModificadaArea {
 }

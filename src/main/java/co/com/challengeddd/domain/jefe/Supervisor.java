@@ -42,9 +42,8 @@ public class Supervisor extends Entity<IdSupervisor> {
         this.idPersonalCosecha = Objects.requireNonNull(idPersonalCosecha);
     }
 
-    public void crearInformeMateriaPrima(String contenido){
-        InformeMateriaPrima informeMateriaPrima = new InformeMateriaPrima(Objects.requireNonNull(contenido));
-        this.informeMateriaPrima = informeMateriaPrima;
+    public void AgregarInformeMateriaPrima(InformeMateriaPrima informeMateriaPrima){
+        this.informeMateriaPrima = Objects.requireNonNull(informeMateriaPrima);
     }
 
     public void modificarInformeMateriaPrima(InformeMateriaPrima informeMateriaPrima){

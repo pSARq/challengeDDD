@@ -1,4 +1,4 @@
 package co.com.challengeddd.domain.jefe.commands;
 
-public class CrearInformeMateriaPrimaSupervisor {
+public class ModificarArea {
 }
