@@ -1,13 +1,12 @@
 package co.com.challengeddd.domain.jefearea.values;
 
 import co.com.sofka.domain.generic.ValueObject;
-import com.sun.source.tree.ReturnTree;
 
 import java.util.Objects;
 
 public class TipoEmbaladora implements ValueObject<String> {
 
-    private String valor;
+    private final String valor;
 
     public TipoEmbaladora(String valor){
         this.valor = Objects.requireNonNull(validarValor(valor), "El tipo de embaladora no puede estar nulo");
@@ -21,7 +20,7 @@ public class TipoEmbaladora implements ValueObject<String> {
     }
 
     private boolean isEmbaladoraCorrecta(String valor) {
-        return valor == "Pequeña" || valor == "Grande";
+        return valor.equals("Pequeña") || valor.equals("Grande");
     }
 
     @Override

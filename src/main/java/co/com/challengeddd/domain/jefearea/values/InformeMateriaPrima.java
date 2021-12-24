@@ -9,10 +9,10 @@ public class InformeMateriaPrima implements ValueObject<String> {
     private final String valor;
 
     public InformeMateriaPrima(String valor){
-        this.valor = Objects.requireNonNull(ValidarValor(valor), "El informe de materia prima no puede ser nulo");
+        this.valor = Objects.requireNonNull(validarValor(valor), "El informe de materia prima no puede ser nulo");
     }
 
-    private String ValidarValor(String valor){
+    private String validarValor(String valor){
         if (valor.isBlank()){
             throw new IllegalArgumentException("El informe de materia prima no puede estar vacio");
         }

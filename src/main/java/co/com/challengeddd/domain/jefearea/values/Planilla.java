@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Planilla implements ValueObject<String> {
 
-    private String valor;
+    private final String valor;
 
     public Planilla(String valor){
         this.valor = Objects.requireNonNull(validarValor(valor), "La planilla no puede ser nula");
