@@ -117,7 +117,7 @@ public class PersonalCosecha extends AggregateEvent<IdPersonalCosecha> {
     public void modificarSalaCosechadorAgricola(IdCosechadorAgricola idCosechadorAgricola, Sala sala){
         Objects.requireNonNull(idCosechadorAgricola);
         Objects.requireNonNull(sala);
-        appendChange(new ModificadaSalaConsechadorAgricola(idCosechadorAgricola, sala)).apply();
+        appendChange(new ModificadaSalaCosechadorAgricola(idCosechadorAgricola, sala)).apply();
     }
 
     public void modificarTamañoChampiñonCosechadorAgricola(IdCosechadorAgricola idCosechadorAgricola, TamañoChampiñon tamañoChampiñon) {
@@ -141,7 +141,6 @@ public class PersonalCosecha extends AggregateEvent<IdPersonalCosecha> {
         return cosechadoresAgricolas().stream()
                 .filter(cosechadorAgricola -> cosechadorAgricola.identity().equals(idCosechadorAgricola)).findFirst();
     }
-
 
     public HoraEmpezarJornadaLaboral horaEmpezarJornadaLaboral() {
         return horaEmpezarJornadaLaboral;
