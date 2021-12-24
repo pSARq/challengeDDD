@@ -1,4 +1,24 @@
-package co.com.challengeDDD.domain.personalcosecha.commands;
+package co.com.challengeddd.domain.personalcosecha.commands;
 
-public class CrearPersonalCosecha {
+import co.com.challengeddd.domain.general.values.HoraEmpezarJornadaLaboral;
+import co.com.challengeddd.domain.personalcosecha.values.IdPersonalCosecha;
+import co.com.sofka.domain.generic.Command;
+
+public class CrearPersonalCosecha extends Command {
+
+    private final IdPersonalCosecha idPersonalCosecha;
+    private final HoraEmpezarJornadaLaboral horaEmpezarJornadaLaboral;
+
+    public CrearPersonalCosecha(IdPersonalCosecha  idPersonalCosecha, HoraEmpezarJornadaLaboral horaEmpezarJornadaLaboral){
+        this.idPersonalCosecha = idPersonalCosecha;
+        this.horaEmpezarJornadaLaboral = horaEmpezarJornadaLaboral;
+    }
+
+    public IdPersonalCosecha getIdPersonalCosecha() {
+        return idPersonalCosecha;
+    }
+
+    public HoraEmpezarJornadaLaboral getHoraEmpezarJornadaLaboral() {
+        return horaEmpezarJornadaLaboral;
+    }
 }
