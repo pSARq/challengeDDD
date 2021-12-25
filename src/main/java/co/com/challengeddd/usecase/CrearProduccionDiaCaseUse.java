@@ -10,8 +10,11 @@ public class CrearProduccionDiaCaseUse extends UseCase<RequestCommand<CrearProdu
 
     @Override
     public void executeUseCase(RequestCommand<CrearProduccionDia> requestCommand) {
+        //Se crea el comando
         CrearProduccionDia command = requestCommand.getCommand();
+        //Se crea el elemento de produccionDia con el comando
         ProduccionDia produccionDia = new ProduccionDia(command.getIdProduccionDia(), command.getTipoEmpaqueBandeja());
+        //Se emite el elemento
         emit().onResponse(new ResponseEvents(produccionDia.getUncommittedChanges()));
     }
 }
