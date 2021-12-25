@@ -1,9 +1,6 @@
 package co.com.challengeddd.domain.personalcosecha.events;
 
-import co.com.challengeddd.domain.general.values.Nombre;
-import co.com.challengeddd.domain.general.values.NumeroCelular;
-import co.com.challengeddd.domain.general.values.Sala;
-import co.com.challengeddd.domain.general.values.TipoBandeja;
+import co.com.challengeddd.domain.general.values.*;
 import co.com.challengeddd.domain.personalcosecha.values.IdCosechadorAgricola;
 import co.com.challengeddd.domain.personalcosecha.values.TipoCuchillo;
 import co.com.sofka.domain.generic.DomainEvent;

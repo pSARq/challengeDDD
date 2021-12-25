@@ -1,5 +1,6 @@
 package co.com.challengeddd.domain.personalcosecha.commands;
 
+import co.com.challengeddd.domain.general.values.TamañoChampiñon;
 import co.com.challengeddd.domain.personalcosecha.values.IdCosechadorAgricola;
 import co.com.sofka.domain.generic.Command;
 
