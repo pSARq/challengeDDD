@@ -4,7 +4,6 @@ import co.com.challengeddd.domain.general.values.*;
 import co.com.challengeddd.domain.personalcosecha.events.*;
 import co.com.challengeddd.domain.personalcosecha.values.*;
 import co.com.challengeddd.domain.personalcosecha.events.ModificadaHoraEmpezarJornadaLaboral;
-import co.com.challengeddd.domain.producciondia.values.TamañoChampiñon;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 

@@ -1,7 +1,6 @@
 package co.com.challengeddd.domain.personalcosecha.events;
 
 import co.com.challengeddd.domain.personalcosecha.values.IdCosechadorAgricola;
-import co.com.challengeddd.domain.producciondia.values.TamañoChampiñon;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class ModificadoTamañoChampiñonCosechadorAgricola extends DomainEvent {

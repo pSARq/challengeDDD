@@ -5,7 +5,6 @@ import co.com.challengeddd.domain.general.values.NumeroCelular;
 import co.com.challengeddd.domain.general.values.Sala;
 import co.com.challengeddd.domain.general.values.TipoBandeja;
 import co.com.challengeddd.domain.personalcosecha.values.TipoCuchillo;
-import co.com.challengeddd.domain.producciondia.values.TamañoChampiñon;
 import co.com.sofka.domain.generic.Command;
 
 public class AgregarCosechadorAgricola extends Command {

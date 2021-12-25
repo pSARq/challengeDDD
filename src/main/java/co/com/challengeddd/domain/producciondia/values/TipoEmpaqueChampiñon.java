@@ -1,4 +1,40 @@
 package co.com.challengeddd.domain.producciondia.values;
 
-public class TipoEmpaqueChampiñon {
+import co.com.sofka.domain.generic.ValueObject;
+
+import java.util.Objects;
+
+public class TipoEmpaqueChampiñon implements ValueObject<String> {
+
+    private final String valor;
+
+    public TipoEmpaqueChampiñon(String valor){
+        this.valor = Objects.requireNonNull(validarValor(valor), "El tipo de empaque no puede ser nulo");
+    }
+
+    private String validarValor(String valor){
+        if (valor.equals("Canasta") || valor.equals("Bandeja")){
+            return valor;
+        }
+        throw new IllegalArgumentException("El tipo de empaque no es valido");
+    }
+
+    @Override
+    public String value() {
+        return valor;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TipoEmpaqueChampiñon that = (TipoEmpaqueChampiñon) o;
+        return Objects.equals(valor, that.valor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(valor);
+    }
 }
+

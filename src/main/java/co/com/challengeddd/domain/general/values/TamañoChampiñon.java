@@ -1,4 +1,4 @@
-package co.com.challengeddd.domain.personalcosecha.values;
+package co.com.challengeddd.domain.general.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 

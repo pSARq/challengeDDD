@@ -9,7 +9,7 @@ public class Nombre implements ValueObject<String> {
     private final String valor;
 
     public Nombre(String valor){
-        this.valor = Objects.requireNonNull(valor, "El nombre no puede ser nulo");
+        this.valor = Objects.requireNonNull(validarValor(valor), "El nombre no puede ser nulo");
     }
 
     private String validarValor(String valor){

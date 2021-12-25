@@ -1,7 +1,6 @@
 package co.com.challengeddd.domain.personalcosecha.commands;
 
 import co.com.challengeddd.domain.personalcosecha.values.IdCosechadorAgricola;
-import co.com.challengeddd.domain.producciondia.values.TamañoChampiñon;
 import co.com.sofka.domain.generic.Command;
 
 public class ModificarTamañoChampiñonCosechadorAgricola extends Command {

@@ -6,7 +6,6 @@ import co.com.challengeddd.domain.general.values.Sala;
 import co.com.challengeddd.domain.general.values.TipoBandeja;
 import co.com.challengeddd.domain.personalcosecha.values.IdCosechadorAgricola;
 import co.com.challengeddd.domain.personalcosecha.values.TipoCuchillo;
-import co.com.challengeddd.domain.producciondia.values.TamañoChampiñon;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class AgregadoCosechadorAgricola extends DomainEvent {
