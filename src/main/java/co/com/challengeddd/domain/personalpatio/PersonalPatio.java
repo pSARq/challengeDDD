@@ -4,7 +4,6 @@ import co.com.challengeddd.domain.general.values.HoraEmpezarJornadaLaboral;
 import co.com.challengeddd.domain.general.values.Nombre;
 import co.com.challengeddd.domain.general.values.NumeroCelular;
 import co.com.challengeddd.domain.general.values.Sala;
-import co.com.challengeddd.domain.personalcosecha.events.CreadoPersonalCosecha;
 import co.com.challengeddd.domain.personalpatio.events.*;
 import co.com.challengeddd.domain.personalpatio.values.*;
 import co.com.sofka.domain.generic.AggregateEvent;
@@ -23,7 +22,7 @@ public class PersonalPatio extends AggregateEvent<IdPersonalPatio> {
         super(idPersonalPatio);
         this.horaEmpezarJornadaLaboral = horaEmpezarJornadaLaboral;
         this.horaTerminarJornadaLaboral = horaTerminarJornadaLaboral;
-        appendChange(new CreadoPersonalCosecha(horaEmpezarJornadaLaboral, horaTerminarJornadaLaboral)).apply();
+        appendChange(new CreadoPersonalPatio(horaEmpezarJornadaLaboral, horaTerminarJornadaLaboral)).apply();
     }
 
     private PersonalPatio(IdPersonalPatio idPersonalPatio){
