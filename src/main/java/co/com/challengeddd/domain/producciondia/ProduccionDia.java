@@ -1,6 +1,5 @@
 package co.com.challengeddd.domain.producciondia;
 
-import co.com.challengeddd.domain.general.values.Nombre;
 import co.com.challengeddd.domain.general.values.TamañoChampiñon;
 import co.com.challengeddd.domain.general.values.TipoBandeja;
 import co.com.challengeddd.domain.jefe.values.IdJefe;
