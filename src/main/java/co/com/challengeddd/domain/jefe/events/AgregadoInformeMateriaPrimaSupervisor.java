@@ -4,6 +4,7 @@ import co.com.challengeddd.domain.jefe.values.InformeMateriaPrima;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class AgregadoInformeMateriaPrimaSupervisor extends DomainEvent {
+
     private final InformeMateriaPrima informeMateriaPrima;
 
     public AgregadoInformeMateriaPrimaSupervisor(InformeMateriaPrima informeMateriaPrima) {
