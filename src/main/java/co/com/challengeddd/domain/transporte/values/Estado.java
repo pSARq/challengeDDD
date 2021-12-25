@@ -4,11 +4,11 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class EstadoVehiculo implements ValueObject<String> {
+public class Estado implements ValueObject<String> {
 
     private final String valor;
 
-    public EstadoVehiculo(String valor){
+    public Estado(String valor){
         this.valor = Objects.requireNonNull(validarValor(valor), "El estado no puede ser nulo");
     }
 
@@ -38,7 +38,7 @@ public class EstadoVehiculo implements ValueObject<String> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        EstadoVehiculo that = (EstadoVehiculo) o;
+        Estado that = (Estado) o;
         return Objects.equals(valor, that.valor);
     }
 
