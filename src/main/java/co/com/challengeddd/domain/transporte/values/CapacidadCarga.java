@@ -20,7 +20,7 @@ public class CapacidadCarga implements ValueObject<String> {
     }
 
     private boolean isValorValido(String valor){
-        String[] listaCapacidadesDeCargas = new String[]{"10 Canastas", "18 Bolsas", "30 Canastas", "45 Bolsas"};
+        String[] listaCapacidadesDeCargas = new String[]{"10 Canastas", "18 Bolsas", "30 Canastas", "45 Bolsas", "3 Bolsas", "3 Canastas"};
         for (String capacidad: listaCapacidadesDeCargas) {
             if (capacidad.equals(valor)){
                 return true;
