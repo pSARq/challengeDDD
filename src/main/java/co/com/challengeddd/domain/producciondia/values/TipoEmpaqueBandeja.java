@@ -13,7 +13,7 @@ public class TipoEmpaqueBandeja implements ValueObject<String> {
     }
 
     private String validarValor(String valor){
-        if (valor.equals("Canasta") || valor.equals("Bandeja")){
+        if (valor.equals("Canasta") || valor.equals("Bolsa")){
             return valor;
         }
         throw new IllegalArgumentException("El tipo de empaque no es valido");
