@@ -9,8 +9,8 @@ import co.com.sofka.business.support.ResponseEvents;
 public class AgregarBandejaChampiñonUseCase extends UseCase<RequestCommand<AgregarBandejaChampiñon>, ResponseEvents> {
 
     @Override
-    public void executeUseCase(RequestCommand<AgregarBandejaChampiñon> agregarBandejaChampiñonRequestCommand) {
-        AgregarBandejaChampiñon command = agregarBandejaChampiñonRequestCommand.getCommand();
+    public void executeUseCase(RequestCommand<AgregarBandejaChampiñon> requestCommand) {
+        AgregarBandejaChampiñon command = requestCommand.getCommand();
 
         ProduccionDia produccionDia = ProduccionDia.from(command.getIdProduccionDia(), retrieveEvents());
 

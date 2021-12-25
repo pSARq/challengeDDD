@@ -34,7 +34,7 @@ class AgregarBandejaChampiñonUseCaseTest {
     DomainEventRepository repository;
 
     @Test
-    void agregarBandeja(){
+    void agregarBandejaChampiñon(){
         IdProduccionDia idProduccionDia = IdProduccionDia.of("Hoy");
         TipoBandeja tipoBandeja = new TipoBandeja("250");
         TipoChampiñon tipoChampiñon = new TipoChampiñon("Entero");
@@ -56,9 +56,9 @@ class AgregarBandejaChampiñonUseCaseTest {
 
         AgregadaBandejaChampiñon event = (AgregadaBandejaChampiñon) events.getDomainEvents().get(0);
 
-        Assertions.assertEquals( "250", tipoBandeja.value());
-        Assertions.assertEquals("Entero", tipoChampiñon.value());
-        Assertions.assertEquals("Boton", tamañoChampiñon.value());
+        Assertions.assertEquals( "250", event.getTipoBandeja().value());
+        Assertions.assertEquals("Entero", event.getTipoChampiñon().value());
+        Assertions.assertEquals("Boton", event.getTamañoChampiñon().value());
 
         //Verifica que se haya llamado el repositorio con ese parametro
         Mockito.verify(repository).getEventsBy("Hoy");
