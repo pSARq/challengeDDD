@@ -4,18 +4,12 @@ import co.com.challengeddd.domain.general.values.HoraEmpezarJornadaLaboral;
 import co.com.challengeddd.domain.general.values.Nombre;
 import co.com.challengeddd.domain.general.values.NumeroCelular;
 import co.com.challengeddd.domain.general.values.Sala;
-import co.com.challengeddd.domain.jefe.commands.ModificarNombreEmbalador;
-import co.com.challengeddd.domain.jefe.events.ModificadoNombreSupervisor;
-import co.com.challengeddd.domain.jefe.events.ModificadoNumeroCelularSupervisor;
-import co.com.challengeddd.domain.personalcosecha.PersonalCosecha;
 import co.com.challengeddd.domain.personalcosecha.events.CreadoPersonalCosecha;
 import co.com.challengeddd.domain.personalpatio.events.*;
 import co.com.challengeddd.domain.personalpatio.values.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 
-import javax.swing.plaf.ViewportUI;
-import java.awt.desktop.AppEvent;
 import java.util.*;
 
 public class PersonalPatio extends AggregateEvent<IdPersonalPatio> {
