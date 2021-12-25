@@ -4,11 +4,11 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class TipoEmpaqueChampiñon implements ValueObject<String> {
+public class TipoEmpaqueBandeja implements ValueObject<String> {
 
     private final String valor;
 
-    public TipoEmpaqueChampiñon(String valor){
+    public TipoEmpaqueBandeja(String valor){
         this.valor = Objects.requireNonNull(validarValor(valor), "El tipo de empaque no puede ser nulo");
     }
 
@@ -28,7 +28,7 @@ public class TipoEmpaqueChampiñon implements ValueObject<String> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TipoEmpaqueChampiñon that = (TipoEmpaqueChampiñon) o;
+        TipoEmpaqueBandeja that = (TipoEmpaqueBandeja) o;
         return Objects.equals(valor, that.valor);
     }
 
