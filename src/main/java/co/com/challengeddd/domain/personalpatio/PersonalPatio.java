@@ -1,4 +1,4 @@
-package co.com.challengeDDD.domain.personalpatio;
+package co.com.challengeddd.domain.personalpatio;
 
 public class PersonalPatio {
 }

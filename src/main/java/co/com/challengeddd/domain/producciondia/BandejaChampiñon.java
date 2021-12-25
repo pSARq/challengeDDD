@@ -1,4 +1,4 @@
-package co.com.challengeDDD.domain.producciondia;
+package co.com.challengeddd.domain.producciondia;
 
 public class BandejaChampiñon {
 }

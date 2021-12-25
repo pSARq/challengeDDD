@@ -1,4 +1,4 @@
-package co.com.challengeDDD.domain.personalpatio.events;
+package co.com.challengeddd.domain.personalpatio.events;
 
 public class ModificadoVenenoFumigador {
 }

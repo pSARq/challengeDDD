@@ -1,4 +1,4 @@
-package co.com.challengeDDD.domain.transporte.commands;
+package co.com.challengeddd.domain.transporte.commands;
 
 public class AsignarVehiculo {
 }

@@ -1,4 +1,4 @@
-package co.com.challengeDDD.domain.producciondia.values;
+package co.com.challengeddd.domain.producciondia.values;
 
 public class TipoChampiñon {
 }

@@ -1,4 +1,4 @@
-package co.com.challengeDDD.domain.producciondia.commands;
+package co.com.challengeddd.domain.producciondia.commands;
 
 public class ModificarTamañoChampiñonBandejaChampiñon {
 }

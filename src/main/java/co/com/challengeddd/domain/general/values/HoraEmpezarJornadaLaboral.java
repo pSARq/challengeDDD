@@ -16,7 +16,7 @@ public class HoraEmpezarJornadaLaboral implements ValueObject<Integer> {
         if (isHoraValida(hora)){
             return hora;
         }
-        throw new IllegalArgumentException("La hora ingresada no es es valida");
+        throw new IllegalArgumentException("La hora ingresada no es valida");
     }
 
     private boolean isHoraValida(int hora) {

@@ -13,11 +13,13 @@ public class Area implements ValueObject<String> {
     }
 
     private String validarValor(String valor){
-        if (valor.isBlank()){
-            throw new IllegalArgumentException("El área no puede estar vacio");
+        if (valor.equals("Produccion") || valor.equals("Contabilidad")){
+            return valor;
         }
-        return valor;
+        throw new IllegalArgumentException("El área no es valida");
     }
+
+
 
     @Override
     public String value() {

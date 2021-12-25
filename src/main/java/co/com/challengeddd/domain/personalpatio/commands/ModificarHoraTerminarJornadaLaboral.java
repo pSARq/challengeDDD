@@ -1,4 +1,4 @@
-package co.com.challengeDDD.domain.personalpatio.commands;
+package co.com.challengeddd.domain.personalpatio.commands;
 
 public class ModificarHoraTerminarJornadaLaboral {
 }

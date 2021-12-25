@@ -1,4 +1,18 @@
-package co.com.challengeDDD.domain.personalpatio.values;
+package co.com.challengeddd.domain.personalpatio.values;
 
-public class IdPersonalPatio {
+import co.com.sofka.domain.generic.Identity;
+
+public class IdPersonalPatio extends Identity {
+
+    public IdPersonalPatio(){
+
+    }
+
+    private IdPersonalPatio(String id){
+        super(id);
+    }
+
+    public static IdPersonalPatio of(String id){
+        return new IdPersonalPatio(id);
+    }
 }

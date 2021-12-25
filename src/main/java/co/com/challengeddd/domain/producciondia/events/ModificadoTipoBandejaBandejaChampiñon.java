@@ -1,4 +1,4 @@
-package co.com.challengeDDD.domain.producciondia.events;
+package co.com.challengeddd.domain.producciondia.events;
 
 public class ModificadoTipoBandejaBandejaChampiñon {
 }

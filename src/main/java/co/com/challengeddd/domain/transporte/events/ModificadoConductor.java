@@ -1,4 +1,4 @@
-package co.com.challengeDDD.domain.transporte.events;
+package co.com.challengeddd.domain.transporte.events;
 
 public class ModificadoConductor {
 }
