@@ -9,7 +9,7 @@ import co.com.challengeddd.domain.personalcosecha.values.TipoCuchillo;
 import co.com.challengeddd.domain.producciondia.values.TamañoChampiñon;
 import co.com.sofka.domain.generic.DomainEvent;
 
-public class AgregadoConsechadorAgricola extends DomainEvent {
+public class AgregadoCosechadorAgricola extends DomainEvent {
 
     private final IdCosechadorAgricola id;
     private final Nombre nombre;
@@ -19,7 +19,7 @@ public class AgregadoConsechadorAgricola extends DomainEvent {
     private final TamañoChampiñon tamañoChampiñon;
     private final TipoBandeja tipoBandeja;
 
-    public AgregadoConsechadorAgricola(IdCosechadorAgricola id, Nombre nombre, NumeroCelular numeroCelular, TipoCuchillo tipoCuchillo, Sala sala, TamañoChampiñon tamañoChampiñon, TipoBandeja tipoBandeja) {
+    public AgregadoCosechadorAgricola(IdCosechadorAgricola id, Nombre nombre, NumeroCelular numeroCelular, TipoCuchillo tipoCuchillo, Sala sala, TamañoChampiñon tamañoChampiñon, TipoBandeja tipoBandeja) {
         super("challengeddd.domain.personalcosecha.agregadocosechadoragricola");
         this.id = id;
         this.nombre = nombre;

@@ -54,7 +54,7 @@ public class PersonalCosecha extends AggregateEvent<IdPersonalCosecha> {
         Objects.requireNonNull(tamañoChampiñon);
         Objects.requireNonNull(tipoBandeja);
         IdCosechadorAgricola id = new IdCosechadorAgricola();
-        appendChange(new AgregadoConsechadorAgricola(id, nombre, numeroCelular, tipoCuchillo, sala, tamañoChampiñon, tipoBandeja)).apply();
+        appendChange(new AgregadoCosechadorAgricola(id, nombre, numeroCelular, tipoCuchillo, sala, tamañoChampiñon, tipoBandeja)).apply();
     }
 
     public void quitarTajador(IdTajador idTajador){
