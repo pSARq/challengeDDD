@@ -1,9 +1,9 @@
 package co.com.challengeddd.domain.producciondia;
 
+import co.com.challengeddd.domain.general.values.Nombre;
 import co.com.challengeddd.domain.general.values.TamañoChampiñon;
 import co.com.challengeddd.domain.general.values.TipoBandeja;
 import co.com.challengeddd.domain.producciondia.values.IdBandejaChampiñon;
-import co.com.challengeddd.domain.producciondia.values.NombreComprador;
 import co.com.challengeddd.domain.producciondia.values.TipoChampiñon;
 import co.com.sofka.domain.generic.Entity;
 
@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class BandejaChampiñon extends Entity<IdBandejaChampiñon> {
 
-    private NombreComprador nombreComprador;
+    private Nombre nombreComprador;
     private TipoBandeja tipoBandeja;
     private TipoChampiñon tipoChampiñon;
     private TamañoChampiñon tamañoChampiñon;
@@ -23,11 +23,11 @@ public class BandejaChampiñon extends Entity<IdBandejaChampiñon> {
         this.tamañoChampiñon = tamañoChampiñon;
     }
 
-    public void agregarNombreComprador(NombreComprador nombreComprador){
+    public void agregarNombreComprador(Nombre nombreComprador){
         this.nombreComprador = Objects.requireNonNull(nombreComprador);
     }
 
-    public void modificarNombreComprador(NombreComprador nombreComprador){
+    public void modificarNombreComprador(Nombre nombreComprador){
         this.nombreComprador = Objects.requireNonNull(nombreComprador);
     }
 
@@ -43,7 +43,7 @@ public class BandejaChampiñon extends Entity<IdBandejaChampiñon> {
         this.tamañoChampiñon = Objects.requireNonNull(tamañoChampiñon);
     }
 
-    public NombreComprador nombreComprador() {
+    public Nombre nombreComprador() {
         return nombreComprador;
     }
 

@@ -1,5 +1,6 @@
 package co.com.challengeddd.domain.producciondia;
 
+import co.com.challengeddd.domain.general.values.Nombre;
 import co.com.challengeddd.domain.general.values.TamañoChampiñon;
 import co.com.challengeddd.domain.general.values.TipoBandeja;
 import co.com.challengeddd.domain.jefe.values.IdJefe;
@@ -10,6 +11,7 @@ import co.com.sofka.domain.generic.DomainEvent;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class ProduccionDia extends AggregateEvent<IdProduccionDia> {
@@ -52,13 +54,13 @@ public class ProduccionDia extends AggregateEvent<IdProduccionDia> {
         appendChange(new ModificadoTipoEmpaqueBandeja(tipoEmpaqueBandeja)).apply();
     }
 
-    public void AsignarNombreCompradorBandejaChampiñon(IdBandejaChampiñon idBandejaChampiñon, NombreComprador nombreComprador){
+    public void AsignarNombreCompradorBandejaChampiñon(IdBandejaChampiñon idBandejaChampiñon, Nombre nombreComprador){
         Objects.requireNonNull(idBandejaChampiñon);
         Objects.requireNonNull(nombreComprador);
         appendChange(new AsignadoNombreCompradorBandejaChampiñon(idBandejaChampiñon, nombreComprador)).apply();
     }
 
-    public void modificarNombreCompradorBandeja(IdBandejaChampiñon idBandejaChampiñon, NombreComprador nombreComprador){
+    public void modificarNombreCompradorBandeja(IdBandejaChampiñon idBandejaChampiñon, Nombre nombreComprador){
         Objects.requireNonNull(idBandejaChampiñon);
         Objects.requireNonNull(nombreComprador);
         appendChange(new ModificadoNombreCompradorBandejaChampiñon(idBandejaChampiñon, nombreComprador)).apply();
@@ -80,6 +82,11 @@ public class ProduccionDia extends AggregateEvent<IdProduccionDia> {
         Objects.requireNonNull(idBandejaChampiñon);
         Objects.requireNonNull(tamañoChampiñon);
         appendChange(new ModificadoTamañoChampiñonBandejaChampiñon(idBandejaChampiñon, tamañoChampiñon)).apply();
+    }
+
+    protected Optional<BandejaChampiñon> obtenerBandejaChampiñonPorId(IdBandejaChampiñon idBandejaChampiñon){
+        return bandejasChampiñon().stream()
+                .filter(bandejaChampiñon -> bandejaChampiñon.identity().equals(idBandejaChampiñon)).findFirst();
     }
 
     public IdJefe idJefe() {

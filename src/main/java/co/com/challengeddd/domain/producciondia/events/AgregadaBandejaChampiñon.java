@@ -15,7 +15,7 @@ public class AgregadaBandejaChampiñon extends DomainEvent {
     private final TamañoChampiñon tamañoChampiñon;
 
     public AgregadaBandejaChampiñon(IdBandejaChampiñon id, TipoBandeja tipoBandeja, TipoChampiñon tipoChampiñon, TamañoChampiñon tamañoChampiñon) {
-        super("challengeddd.domain.transporte.agregadabandejachampiñon");
+        super("challengeddd.domain.producciondia.agregadabandejachampiñon");
         this.id = id;
         this.tipoBandeja = tipoBandeja;
         this.tipoChampiñon = tipoChampiñon;

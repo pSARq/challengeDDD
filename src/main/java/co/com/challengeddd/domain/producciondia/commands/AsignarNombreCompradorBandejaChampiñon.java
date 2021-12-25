@@ -1,15 +1,15 @@
 package co.com.challengeddd.domain.producciondia.commands;
 
+import co.com.challengeddd.domain.general.values.Nombre;
 import co.com.challengeddd.domain.producciondia.values.IdBandejaChampiñon;
-import co.com.challengeddd.domain.producciondia.values.NombreComprador;
 import co.com.sofka.domain.generic.Command;
 
 public class AsignarNombreCompradorBandejaChampiñon extends Command {
 
     private final IdBandejaChampiñon idBandejaChampiñon;
-    private final NombreComprador nombreComprador;
+    private final Nombre nombreComprador;
 
-    public AsignarNombreCompradorBandejaChampiñon(IdBandejaChampiñon idBandejaChampiñon, NombreComprador nombreComprador){
+    public AsignarNombreCompradorBandejaChampiñon(IdBandejaChampiñon idBandejaChampiñon, Nombre nombreComprador){
         this.idBandejaChampiñon = idBandejaChampiñon;
         this.nombreComprador = nombreComprador;
     }
@@ -18,7 +18,7 @@ public class AsignarNombreCompradorBandejaChampiñon extends Command {
         return idBandejaChampiñon;
     }
 
-    public NombreComprador getNombreComprador() {
+    public Nombre getNombreComprador() {
         return nombreComprador;
     }
 }
