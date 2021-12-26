@@ -2,6 +2,7 @@ package co.com.challengeddd.domain.general.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Sala implements ValueObject<String> {
@@ -21,13 +22,7 @@ public class Sala implements ValueObject<String> {
 
     private boolean isSalaCorrecta(String valor){
         String[] listaSalas = new String[]{"0", "1", "3", "5", "6", "7"};
-
-        for (String sala: listaSalas) {
-            if (sala.equals(valor)){
-                return true;
-            }
-        }
-        return false;
+        return Arrays.stream(listaSalas).anyMatch(sala -> sala.equals(valor));
     }
 
     @Override

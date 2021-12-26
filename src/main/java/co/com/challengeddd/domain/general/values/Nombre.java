@@ -16,6 +16,9 @@ public class Nombre implements ValueObject<String> {
         if (valor.isBlank()) {
             throw new IllegalArgumentException("El nombre no puede estar vacio");
         }
+        if (valor.length() > 40){
+            throw new IllegalArgumentException("El nombre es muy largo");
+        }
         return valor;
     }
 

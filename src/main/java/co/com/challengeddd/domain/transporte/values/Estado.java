@@ -2,6 +2,7 @@ package co.com.challengeddd.domain.transporte.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Estado implements ValueObject<String> {
@@ -21,12 +22,7 @@ public class Estado implements ValueObject<String> {
 
     private boolean isValorValido(String valor){
         String[] listaEstadoVehiculo = new String[]{"Bueno", "Regular", "Malo"};
-        for (String estado: listaEstadoVehiculo) {
-            if (estado.equals(valor)){
-                return true;
-            }
-        }
-        return false;
+        return Arrays.stream(listaEstadoVehiculo).anyMatch(estado -> estado.equals(valor));
     }
 
     @Override

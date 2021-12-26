@@ -2,6 +2,7 @@ package co.com.challengeddd.domain.transporte.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class CapacidadCarga implements ValueObject<String> {
@@ -21,12 +22,7 @@ public class CapacidadCarga implements ValueObject<String> {
 
     private boolean isValorValido(String valor){
         String[] listaCapacidadesDeCargas = new String[]{"10 Canastas", "18 Bolsas", "30 Canastas", "45 Bolsas", "3 Bolsas", "3 Canastas"};
-        for (String capacidad: listaCapacidadesDeCargas) {
-            if (capacidad.equals(valor)){
-                return true;
-            }
-        }
-        return false;
+        return Arrays.stream(listaCapacidadesDeCargas).anyMatch(capacidad -> capacidad.equals(valor));
     }
 
     @Override

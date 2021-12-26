@@ -9,14 +9,14 @@ public class TecnicaTajado implements ValueObject<String> {
     private final String valor;
 
     public TecnicaTajado(String valor){
-        this.valor = Objects.requireNonNull(validarValor(valor), "La tecnica de tajado no puede ser nula");
+        this.valor = Objects.requireNonNull(validarValor(valor), "La técnica de tajado no puede ser nula");
     }
 
     private String validarValor(String valor){
         if (valor.equals("Industrial") || valor.equals("Artesanal")){
             return valor;
         }
-        throw new IllegalArgumentException("La tecnica de tajado no es valida");
+        throw new IllegalArgumentException("La técnica de tajado no es valida");
     }
 
     @Override

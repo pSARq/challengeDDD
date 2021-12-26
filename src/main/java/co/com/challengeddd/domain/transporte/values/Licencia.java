@@ -2,6 +2,7 @@ package co.com.challengeddd.domain.transporte.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Licencia implements ValueObject<Licencia.Properties> {
@@ -39,12 +40,7 @@ public class Licencia implements ValueObject<Licencia.Properties> {
 
     private boolean isTipoCorrecto(String tipo){
         String[] listaTiposLicencia = new String[]{"A1", "A2", "B1", "B2", "C3"};
-        for (String tipoLicencia:listaTiposLicencia) {
-            if (tipoLicencia.equals(tipo)){
-                return true;
-            }
-        }
-        return false;
+        return Arrays.stream(listaTiposLicencia).anyMatch(tipoLicencia -> tipoLicencia.equals(tipo));
     }
 
     public interface Properties{

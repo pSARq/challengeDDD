@@ -2,6 +2,7 @@ package co.com.challengeddd.domain.personalpatio.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Veneno implements ValueObject<String> {
@@ -22,13 +23,7 @@ public class Veneno implements ValueObject<String> {
 
     private boolean isVenenoValido(String valor){
         String[] listaVenenos = new String[]{"Cipermetrina", "Mats", "Mirage", "Nuvan"};
-
-        for (String veneno: listaVenenos) {
-            if (veneno.equals(valor)){
-                return true;
-            }
-        }
-        return false;
+        return Arrays.stream(listaVenenos).anyMatch(veneno -> veneno.equals(valor));
     }
 
     @Override

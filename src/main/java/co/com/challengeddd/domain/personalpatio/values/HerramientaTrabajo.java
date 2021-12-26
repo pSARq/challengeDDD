@@ -2,6 +2,7 @@ package co.com.challengeddd.domain.personalpatio.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class HerramientaTrabajo implements ValueObject<String> {
@@ -21,13 +22,7 @@ public class HerramientaTrabajo implements ValueObject<String> {
 
     private boolean isHerramientaValida(String valor){
         String[] listaHerramientas = new String[]{"Pesa", "Gancho", "Carreta", "Bolsa", "Amarra"};
-
-        for (String herramienta: listaHerramientas) {
-            if (herramienta.equals(valor)){
-                return true;
-            }
-        }
-        return false;
+        return Arrays.stream(listaHerramientas).anyMatch(herramienta -> herramienta.equals(valor));
     }
 
     @Override

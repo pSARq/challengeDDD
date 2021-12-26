@@ -2,6 +2,7 @@ package co.com.challengeddd.domain.general.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class TamañoChampiñon implements ValueObject<String> {
@@ -21,13 +22,7 @@ public class TamañoChampiñon implements ValueObject<String> {
 
     private boolean isTamañoCorrecto(String valor){
         String[] listaTamaños = new String[]{"Boton", "Mediano", "Grande"};
-
-        for (String tamaño: listaTamaños) {
-            if (tamaño.equals(valor)){
-                return true;
-            }
-        }
-        return false;
+        return Arrays.stream(listaTamaños).anyMatch(tamaño -> tamaño.equals(valor));
     }
 
     @Override

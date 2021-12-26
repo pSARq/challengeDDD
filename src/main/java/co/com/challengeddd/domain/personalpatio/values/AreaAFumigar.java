@@ -2,6 +2,7 @@ package co.com.challengeddd.domain.personalpatio.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class AreaAFumigar implements ValueObject<String> {
@@ -21,13 +22,7 @@ public class AreaAFumigar implements ValueObject<String> {
 
     private boolean isValidaArea(String valor){
         String[] listaAreas = new String[]{"0", "1", "3", "5", "6", "7", "Patio", "Siembra", "Empaque", "Cosecha"};
-
-        for (String area: listaAreas) {
-            if (area.equals(valor)){
-                return true;
-            }
-        }
-        return false;
+        return Arrays.stream(listaAreas).anyMatch(area -> area.equals(valor));
     }
 
     @Override

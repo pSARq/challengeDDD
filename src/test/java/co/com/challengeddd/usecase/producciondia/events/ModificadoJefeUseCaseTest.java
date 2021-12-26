@@ -1,16 +1,8 @@
 package co.com.challengeddd.usecase.producciondia.events;
 
-
-import co.com.challengeddd.domain.general.values.TamañoChampiñon;
-import co.com.challengeddd.domain.general.values.TipoBandeja;
 import co.com.challengeddd.domain.jefe.values.IdJefe;
-import co.com.challengeddd.domain.producciondia.events.AgregadaBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.events.ModificadoJefe;
-import co.com.challengeddd.domain.producciondia.values.IdBandejaChampiñon;
-import co.com.challengeddd.domain.producciondia.values.TipoChampiñon;
-import co.com.challengeddd.usecase.produccionDia.events.AgregadaBandejaChampiñonUseCase;
 import co.com.challengeddd.usecase.produccionDia.events.ModificadoJefeUseCase;
-import co.com.challengeddd.usecase.produccionDia.events.services.AgregarBandejaChampiñonService;
 import co.com.challengeddd.usecase.produccionDia.events.services.ModificarJefeService;
 import co.com.sofka.business.generic.ServiceBuilder;
 import co.com.sofka.business.generic.UseCaseHandler;
@@ -18,7 +10,6 @@ import co.com.sofka.business.support.TriggeredEvent;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.Mockito.verify;

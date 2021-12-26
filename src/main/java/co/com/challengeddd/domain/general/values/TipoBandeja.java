@@ -2,6 +2,7 @@ package co.com.challengeddd.domain.general.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class TipoBandeja implements ValueObject<String> {
@@ -16,18 +17,12 @@ public class TipoBandeja implements ValueObject<String> {
         if (isTipoBandejaCorrecta(valor)) {
             return valor;
         }
-        throw new IllegalArgumentException("El número de la sala es incorrecto");
+        throw new IllegalArgumentException("El tipo de la bandeja es incorrecto");
     }
 
     private boolean isTipoBandejaCorrecta(String valor){
         String[] listaTiposBandejas = new String[]{"150", "250", "500"};
-
-        for (String tipoBandeja : listaTiposBandejas) {
-            if (tipoBandeja.equals(valor)){
-                return true;
-            }
-        }
-        return false;
+        return Arrays.stream(listaTiposBandejas).anyMatch(tipoBandeja -> tipoBandeja.equals(valor));
     }
 
     @Override
