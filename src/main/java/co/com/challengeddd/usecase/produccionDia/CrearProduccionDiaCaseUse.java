@@ -1,4 +1,4 @@
-package co.com.challengeddd.usecase;
+package co.com.challengeddd.usecase.produccionDia;
 
 import co.com.challengeddd.domain.producciondia.ProduccionDia;
 import co.com.challengeddd.domain.producciondia.commands.CrearProduccionDia;
@@ -13,7 +13,7 @@ public class CrearProduccionDiaCaseUse extends UseCase<RequestCommand<CrearProdu
         //Se crea el comando
         CrearProduccionDia command = requestCommand.getCommand();
         //Se crea el elemento de produccionDia con el comando
-        ProduccionDia produccionDia = new ProduccionDia(command.getIdProduccionDia(), command.getTipoEmpaqueBandeja());
+        ProduccionDia produccionDia = new ProduccionDia(command.getIdProduccionDia(), command.getIdJefe(), command.getTipoEmpaqueBandeja());
         //Se emite el elemento
         emit().onResponse(new ResponseEvents(produccionDia.getUncommittedChanges()));
     }

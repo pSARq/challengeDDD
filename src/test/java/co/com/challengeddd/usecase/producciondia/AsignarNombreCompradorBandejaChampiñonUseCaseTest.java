@@ -1,8 +1,9 @@
-package co.com.challengeddd.usecase;
+package co.com.challengeddd.usecase.producciondia;
 
 import co.com.challengeddd.domain.general.values.Nombre;
 import co.com.challengeddd.domain.general.values.TamañoChampiñon;
 import co.com.challengeddd.domain.general.values.TipoBandeja;
+import co.com.challengeddd.domain.jefe.values.IdJefe;
 import co.com.challengeddd.domain.producciondia.commands.AsignarNombreCompradorBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.events.AgregadaBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.events.AsignadoNombreCompradorBandejaChampiñon;
@@ -11,6 +12,7 @@ import co.com.challengeddd.domain.producciondia.values.IdBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.values.IdProduccionDia;
 import co.com.challengeddd.domain.producciondia.values.TipoChampiñon;
 import co.com.challengeddd.domain.producciondia.values.TipoEmpaqueBandeja;
+import co.com.challengeddd.usecase.produccionDia.AsignarNombreCompradorBandejaChampiñonUseCase;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
@@ -59,6 +61,7 @@ class AsignarNombreCompradorBandejaChampiñonUseCaseTest {
 
     private List<DomainEvent> events() {
         return List.of(new CreadaProduccionDia(
+                IdJefe.of("jefe"),
                 new TipoEmpaqueBandeja("Bolsa")
         ), new AgregadaBandejaChampiñon(
                 IdBandejaChampiñon.of("2"),

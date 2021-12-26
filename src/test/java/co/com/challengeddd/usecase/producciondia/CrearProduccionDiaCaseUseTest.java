@@ -1,9 +1,11 @@
-package co.com.challengeddd.usecase;
+package co.com.challengeddd.usecase.producciondia;
 
+import co.com.challengeddd.domain.jefe.values.IdJefe;
 import co.com.challengeddd.domain.producciondia.commands.CrearProduccionDia;
 import co.com.challengeddd.domain.producciondia.events.CreadaProduccionDia;
 import co.com.challengeddd.domain.producciondia.values.IdProduccionDia;
 import co.com.challengeddd.domain.producciondia.values.TipoEmpaqueBandeja;
+import co.com.challengeddd.usecase.produccionDia.CrearProduccionDiaCaseUse;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
@@ -19,10 +21,11 @@ class CrearProduccionDiaCaseUseTest {
 
         //Inicializa valores de atributos para la clase
         IdProduccionDia idProduccionDia = IdProduccionDia.of("Hoy");
+        IdJefe idJefe = IdJefe.of("jefe");
         TipoEmpaqueBandeja tipoEmpaque = new TipoEmpaqueBandeja("Bolsa");
 
         //Inicializa el comando
-        CrearProduccionDia command = new CrearProduccionDia(idProduccionDia, tipoEmpaque);
+        CrearProduccionDia command = new CrearProduccionDia(idProduccionDia, idJefe, tipoEmpaque);
         //Inicializa el caso de uso
         CrearProduccionDiaCaseUse useCase = new CrearProduccionDiaCaseUse();
 

@@ -1,15 +1,17 @@
-package co.com.challengeddd.usecase;
+package co.com.challengeddd.usecase.producciondia;
 
 import co.com.challengeddd.domain.general.values.TamañoChampiñon;
 import co.com.challengeddd.domain.general.values.TipoBandeja;
-import co.com.challengeddd.domain.producciondia.commands.ModificarTipoChampiñonBandejaChampiñon;
+import co.com.challengeddd.domain.jefe.values.IdJefe;
+import co.com.challengeddd.domain.producciondia.commands.ModificarTamañoChampiñonBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.events.AgregadaBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.events.CreadaProduccionDia;
-import co.com.challengeddd.domain.producciondia.events.ModificadoTipoChampiñonBandejaChampiñon;
+import co.com.challengeddd.domain.producciondia.events.ModificadoTamañoChampiñonBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.values.IdBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.values.IdProduccionDia;
 import co.com.challengeddd.domain.producciondia.values.TipoChampiñon;
 import co.com.challengeddd.domain.producciondia.values.TipoEmpaqueBandeja;
+import co.com.challengeddd.usecase.produccionDia.ModificarTamañoChampiñonBandejaChampiñonUseCase;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
@@ -27,19 +29,18 @@ import java.util.List;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class ModificarTipoChampiñonBandejaChampiñonUseCaseTest {
+class ModificarTamañoChampiñonBandejaChampiñonUseCaseTest {
 
     @Mock
     DomainEventRepository repository;
 
     @Test
-    void modificarTipoChampiñonBandejaChampiñon(){
-
+    void modificarTamañoChampiñonBandejaChampiñon(){
         IdProduccionDia idProduccionDia = IdProduccionDia.of("produccion");
         IdBandejaChampiñon idBandejaChampiñon = IdBandejaChampiñon.of("bandeja");
-        TipoChampiñon tipoChampiñon = new TipoChampiñon("Tajado");
-        ModificarTipoChampiñonBandejaChampiñon command = new ModificarTipoChampiñonBandejaChampiñon(idProduccionDia, idBandejaChampiñon, tipoChampiñon);
-        ModificarTipoChampiñonBandejaChampiñonUseCase useCase = new ModificarTipoChampiñonBandejaChampiñonUseCase();
+        TamañoChampiñon tamañoChampiñon = new TamañoChampiñon("Mediano");
+        ModificarTamañoChampiñonBandejaChampiñon command = new ModificarTamañoChampiñonBandejaChampiñon(idProduccionDia, idBandejaChampiñon, tamañoChampiñon);
+        ModificarTamañoChampiñonBandejaChampiñonUseCase useCase = new ModificarTamañoChampiñonBandejaChampiñonUseCase();
 
         when(repository.getEventsBy("produccion")).thenReturn(events());
         useCase.addRepository(repository);
@@ -48,22 +49,22 @@ class ModificarTipoChampiñonBandejaChampiñonUseCaseTest {
                 .setIdentifyExecutor(idProduccionDia.value())
                 .syncExecutor(useCase, new RequestCommand<>(command))
                 .orElseThrow();
-        ModificadoTipoChampiñonBandejaChampiñon event = (ModificadoTipoChampiñonBandejaChampiñon) events.getDomainEvents().get(0);
+        ModificadoTamañoChampiñonBandejaChampiñon event = (ModificadoTamañoChampiñonBandejaChampiñon) events.getDomainEvents().get(0);
 
         Assertions.assertEquals("bandeja", event.getIdBandejaChampiñon().value());
-        Assertions.assertEquals("Tajado", event.getTipoChampiñon().value());
+        Assertions.assertEquals("Mediano", event.getTamañoChampiñon().value());
         Mockito.verify(repository).getEventsBy("produccion");
     }
 
     private List<DomainEvent> events() {
         return List.of(new CreadaProduccionDia(
-                new TipoEmpaqueBandeja("Canasta")
+                IdJefe.of("jefe"),
+                new TipoEmpaqueBandeja("Bolsa")
         ), new AgregadaBandejaChampiñon(
                 IdBandejaChampiñon.of("bandeja"),
                 new TipoBandeja("150"),
                 new TipoChampiñon("Entero"),
                 new TamañoChampiñon("Grande")
-
         ));
     }
 }

@@ -20,9 +20,9 @@ public class ProduccionDia extends AggregateEvent<IdProduccionDia> {
     protected TipoEmpaqueBandeja tipoEmpaqueBandeja;
     protected Set<BandejaChampiñon> bandejasChampiñon;
 
-    public ProduccionDia(IdProduccionDia idProduccionDia, TipoEmpaqueBandeja tipoEmpaqueBandeja){
+    public ProduccionDia(IdProduccionDia idProduccionDia, IdJefe idJefe, TipoEmpaqueBandeja tipoEmpaqueBandeja){
         super(idProduccionDia);
-        appendChange(new CreadaProduccionDia(tipoEmpaqueBandeja)).apply();
+        appendChange(new CreadaProduccionDia(idJefe, tipoEmpaqueBandeja)).apply();
     }
 
     private ProduccionDia(IdProduccionDia idProduccionDia){

@@ -1,14 +1,16 @@
-package co.com.challengeddd.usecase;
+package co.com.challengeddd.usecase.producciondia;
 
 
 import co.com.challengeddd.domain.general.values.TamañoChampiñon;
 import co.com.challengeddd.domain.general.values.TipoBandeja;
+import co.com.challengeddd.domain.jefe.values.IdJefe;
 import co.com.challengeddd.domain.producciondia.commands.AgregarBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.events.AgregadaBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.events.CreadaProduccionDia;
 import co.com.challengeddd.domain.producciondia.values.IdProduccionDia;
 import co.com.challengeddd.domain.producciondia.values.TipoChampiñon;
 import co.com.challengeddd.domain.producciondia.values.TipoEmpaqueBandeja;
+import co.com.challengeddd.usecase.produccionDia.AgregarBandejaChampiñonUseCase;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
@@ -68,6 +70,7 @@ class AgregarBandejaChampiñonUseCaseTest {
     //Son los eventos que pasaron para poder crear un ProduccionDia
     private List<DomainEvent> events() {
         return List.of(new CreadaProduccionDia(
+                IdJefe.of("jefe"),
                 new TipoEmpaqueBandeja("Canasta")
         ));
     }

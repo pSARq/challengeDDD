@@ -1,4 +1,4 @@
-package co.com.challengeddd.usecase;
+package co.com.challengeddd.usecase.produccionDia;
 
 import co.com.challengeddd.domain.producciondia.ProduccionDia;
 import co.com.challengeddd.domain.producciondia.commands.ModificarTipoEmpaqueBandeja;

@@ -1,16 +1,17 @@
-package co.com.challengeddd.usecase;
+package co.com.challengeddd.usecase.producciondia;
 
-import co.com.challengeddd.domain.general.values.Nombre;
 import co.com.challengeddd.domain.general.values.TamañoChampiñon;
 import co.com.challengeddd.domain.general.values.TipoBandeja;
-import co.com.challengeddd.domain.producciondia.commands.ModificarNombreCompradorBandejaChampiñon;
+import co.com.challengeddd.domain.jefe.values.IdJefe;
+import co.com.challengeddd.domain.producciondia.commands.ModificarTipoBandejaBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.events.AgregadaBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.events.CreadaProduccionDia;
-import co.com.challengeddd.domain.producciondia.events.ModificadoNombreCompradorBandejaChampiñon;
+import co.com.challengeddd.domain.producciondia.events.ModificadoTipoBandejaBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.values.IdBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.values.IdProduccionDia;
 import co.com.challengeddd.domain.producciondia.values.TipoChampiñon;
 import co.com.challengeddd.domain.producciondia.values.TipoEmpaqueBandeja;
+import co.com.challengeddd.usecase.produccionDia.ModificarTipoBandejaBandejaChampiñonUseCase;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
@@ -27,20 +28,21 @@ import java.util.List;
 
 import static org.mockito.Mockito.when;
 
+
 @ExtendWith(MockitoExtension.class)
-class ModificarNombreCompradorBandejaChampiñonUseCaseTest {
+class ModificarTipoBandejaBandejaChampiñonUseCaseTest {
 
     @Mock
     DomainEventRepository repository;
 
     @Test
-    void modificarNombreCompradorBandejaChampiñon(){
+    void modificarTipoBandejaBandejaChampiñon(){
+
         IdProduccionDia idProduccionDia = IdProduccionDia.of("produccion");
         IdBandejaChampiñon idBandejaChampiñon = IdBandejaChampiñon.of("bandeja");
-        Nombre nombreComprador = new Nombre("Lucas");
-
-        ModificarNombreCompradorBandejaChampiñon command = new ModificarNombreCompradorBandejaChampiñon(idProduccionDia, idBandejaChampiñon, nombreComprador);
-        ModificarNombreCompradorBandejaChampiñonUseCase useCase = new ModificarNombreCompradorBandejaChampiñonUseCase();
+        TipoBandeja tipoBandeja = new TipoBandeja("150");
+        ModificarTipoBandejaBandejaChampiñon command = new ModificarTipoBandejaBandejaChampiñon(idProduccionDia, idBandejaChampiñon, tipoBandeja);
+        ModificarTipoBandejaBandejaChampiñonUseCase useCase = new ModificarTipoBandejaBandejaChampiñonUseCase();
 
         when(repository.getEventsBy("produccion")).thenReturn(events());
         useCase.addRepository(repository);
@@ -49,22 +51,21 @@ class ModificarNombreCompradorBandejaChampiñonUseCaseTest {
                 .setIdentifyExecutor(idProduccionDia.value())
                 .syncExecutor(useCase, new RequestCommand<>(command))
                 .orElseThrow();
-
-        ModificadoNombreCompradorBandejaChampiñon event = (ModificadoNombreCompradorBandejaChampiñon) events.getDomainEvents().get(0);
+        ModificadoTipoBandejaBandejaChampiñon event = (ModificadoTipoBandejaBandejaChampiñon) events.getDomainEvents().get(0);
 
         Assertions.assertEquals("bandeja", event.getIdBandejaChampiñon().value());
-        Assertions.assertEquals("Lucas", event.getNombreComprador().value());
+        Assertions.assertEquals("150", event.getTipoBandeja().value());
         Mockito.verify(repository).getEventsBy("produccion");
     }
 
     private List<DomainEvent> events() {
         return List.of(new CreadaProduccionDia(
+                IdJefe.of("jefe"),
                 new TipoEmpaqueBandeja("Canasta")
         ), new AgregadaBandejaChampiñon(
                 IdBandejaChampiñon.of("bandeja"),
                 new TipoBandeja("500"),
                 new TipoChampiñon("Entero"),
-                new TamañoChampiñon("Mediano")
-        ));
+                new TamañoChampiñon("Grande")));
     }
 }
