@@ -2,7 +2,6 @@ package co.com.challengeddd.usecase;
 
 import co.com.challengeddd.domain.jefe.values.IdJefe;
 import co.com.challengeddd.domain.producciondia.commands.ModificarJefe;
-import co.com.challengeddd.domain.producciondia.events.AgregadaBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.events.CreadaProduccionDia;
 import co.com.challengeddd.domain.producciondia.events.ModificadoJefe;
 import co.com.challengeddd.domain.producciondia.values.IdProduccionDia;
