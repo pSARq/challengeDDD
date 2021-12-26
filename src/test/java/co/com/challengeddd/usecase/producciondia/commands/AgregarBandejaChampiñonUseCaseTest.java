@@ -1,4 +1,4 @@
-package co.com.challengeddd.usecase.producciondia;
+package co.com.challengeddd.usecase.producciondia.commands;
 
 
 import co.com.challengeddd.domain.general.values.TamañoChampiñon;
@@ -10,7 +10,7 @@ import co.com.challengeddd.domain.producciondia.events.CreadaProduccionDia;
 import co.com.challengeddd.domain.producciondia.values.IdProduccionDia;
 import co.com.challengeddd.domain.producciondia.values.TipoChampiñon;
 import co.com.challengeddd.domain.producciondia.values.TipoEmpaqueBandeja;
-import co.com.challengeddd.usecase.produccionDia.AgregarBandejaChampiñonUseCase;
+import co.com.challengeddd.usecase.produccionDia.commands.AgregarBandejaChampiñonUseCase;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;

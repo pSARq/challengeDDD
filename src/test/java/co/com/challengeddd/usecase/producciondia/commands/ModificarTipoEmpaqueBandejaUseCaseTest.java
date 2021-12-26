@@ -1,12 +1,12 @@
-package co.com.challengeddd.usecase.producciondia;
+package co.com.challengeddd.usecase.producciondia.commands;
 
 import co.com.challengeddd.domain.jefe.values.IdJefe;
-import co.com.challengeddd.domain.producciondia.commands.ModificarJefe;
+import co.com.challengeddd.domain.producciondia.commands.ModificarTipoEmpaqueBandeja;
 import co.com.challengeddd.domain.producciondia.events.CreadaProduccionDia;
-import co.com.challengeddd.domain.producciondia.events.ModificadoJefe;
+import co.com.challengeddd.domain.producciondia.events.ModificadoTipoEmpaqueBandeja;
 import co.com.challengeddd.domain.producciondia.values.IdProduccionDia;
 import co.com.challengeddd.domain.producciondia.values.TipoEmpaqueBandeja;
-import co.com.challengeddd.usecase.produccionDia.ModificarJefeUseCase;
+import co.com.challengeddd.usecase.produccionDia.commands.ModificarTipoEmpaqueBandejaUseCase;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
@@ -24,40 +24,36 @@ import java.util.List;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-
-class ModificarJefeUseCaseTest {
+class ModificarTipoEmpaqueBandejaUseCaseTest {
 
     @Mock
     DomainEventRepository repository;
 
     @Test
-    void modificarJefe(){
+    void modificarTipoEmpaqueBandeja(){
 
         IdProduccionDia idProduccionDia = IdProduccionDia.of("produccion");
-        IdJefe idJefe = IdJefe.of("jefe");
+        TipoEmpaqueBandeja tipoEmpaqueBandeja = new TipoEmpaqueBandeja("Bolsa");
+        ModificarTipoEmpaqueBandeja command = new ModificarTipoEmpaqueBandeja(idProduccionDia, tipoEmpaqueBandeja);
+        ModificarTipoEmpaqueBandejaUseCase useCase = new ModificarTipoEmpaqueBandejaUseCase();
 
-        ModificarJefe command = new ModificarJefe(idProduccionDia, idJefe);
-        ModificarJefeUseCase useCase = new ModificarJefeUseCase();
-
-        when(repository.getEventsBy("produccion")).thenReturn(event());
+        when(repository.getEventsBy("produccion")).thenReturn(events());
         useCase.addRepository(repository);
 
         ResponseEvents events = UseCaseHandler.getInstance()
                 .setIdentifyExecutor(idProduccionDia.value())
                 .syncExecutor(useCase, new RequestCommand<>(command))
                 .orElseThrow();
+        ModificadoTipoEmpaqueBandeja event = (ModificadoTipoEmpaqueBandeja) events.getDomainEvents().get(0);
 
-        ModificadoJefe event = (ModificadoJefe) events.getDomainEvents().get(0);
-
-        Assertions.assertEquals("jefe", event.getIdJefe().value());
+        Assertions.assertEquals("Bolsa", event.getTipoEmpaqueBandeja().value());
         Mockito.verify(repository).getEventsBy("produccion");
-
     }
 
-    private List<DomainEvent> event() {
+    private List<DomainEvent> events() {
         return List.of(new CreadaProduccionDia(
                 IdJefe.of("jefe"),
-                new TipoEmpaqueBandeja("Bolsa")
+                new TipoEmpaqueBandeja("Canasta")
         ));
     }
 }

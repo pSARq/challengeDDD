@@ -1,11 +1,11 @@
-package co.com.challengeddd.usecase.producciondia;
+package co.com.challengeddd.usecase.producciondia.commands;
 
 import co.com.challengeddd.domain.jefe.values.IdJefe;
 import co.com.challengeddd.domain.producciondia.commands.CrearProduccionDia;
 import co.com.challengeddd.domain.producciondia.events.CreadaProduccionDia;
 import co.com.challengeddd.domain.producciondia.values.IdProduccionDia;
 import co.com.challengeddd.domain.producciondia.values.TipoEmpaqueBandeja;
-import co.com.challengeddd.usecase.produccionDia.CrearProduccionDiaCaseUse;
+import co.com.challengeddd.usecase.produccionDia.commands.CrearProduccionDiaCaseUse;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;

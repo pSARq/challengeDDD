@@ -1,4 +1,4 @@
-package co.com.challengeddd.usecase.produccionDia;
+package co.com.challengeddd.usecase.produccionDia.commands;
 
 import co.com.challengeddd.domain.producciondia.ProduccionDia;
 import co.com.challengeddd.domain.producciondia.commands.ModificarJefe;

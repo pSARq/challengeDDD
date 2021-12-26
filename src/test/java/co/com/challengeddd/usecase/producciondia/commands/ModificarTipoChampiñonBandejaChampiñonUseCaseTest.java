@@ -1,17 +1,17 @@
-package co.com.challengeddd.usecase.producciondia;
+package co.com.challengeddd.usecase.producciondia.commands;
 
 import co.com.challengeddd.domain.general.values.TamañoChampiñon;
 import co.com.challengeddd.domain.general.values.TipoBandeja;
 import co.com.challengeddd.domain.jefe.values.IdJefe;
-import co.com.challengeddd.domain.producciondia.commands.ModificarTipoBandejaBandejaChampiñon;
+import co.com.challengeddd.domain.producciondia.commands.ModificarTipoChampiñonBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.events.AgregadaBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.events.CreadaProduccionDia;
-import co.com.challengeddd.domain.producciondia.events.ModificadoTipoBandejaBandejaChampiñon;
+import co.com.challengeddd.domain.producciondia.events.ModificadoTipoChampiñonBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.values.IdBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.values.IdProduccionDia;
 import co.com.challengeddd.domain.producciondia.values.TipoChampiñon;
 import co.com.challengeddd.domain.producciondia.values.TipoEmpaqueBandeja;
-import co.com.challengeddd.usecase.produccionDia.ModificarTipoBandejaBandejaChampiñonUseCase;
+import co.com.challengeddd.usecase.produccionDia.commands.ModificarTipoChampiñonBandejaChampiñonUseCase;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
@@ -28,21 +28,20 @@ import java.util.List;
 
 import static org.mockito.Mockito.when;
 
-
 @ExtendWith(MockitoExtension.class)
-class ModificarTipoBandejaBandejaChampiñonUseCaseTest {
+class ModificarTipoChampiñonBandejaChampiñonUseCaseTest {
 
     @Mock
     DomainEventRepository repository;
 
     @Test
-    void modificarTipoBandejaBandejaChampiñon(){
+    void modificarTipoChampiñonBandejaChampiñon(){
 
         IdProduccionDia idProduccionDia = IdProduccionDia.of("produccion");
         IdBandejaChampiñon idBandejaChampiñon = IdBandejaChampiñon.of("bandeja");
-        TipoBandeja tipoBandeja = new TipoBandeja("150");
-        ModificarTipoBandejaBandejaChampiñon command = new ModificarTipoBandejaBandejaChampiñon(idProduccionDia, idBandejaChampiñon, tipoBandeja);
-        ModificarTipoBandejaBandejaChampiñonUseCase useCase = new ModificarTipoBandejaBandejaChampiñonUseCase();
+        TipoChampiñon tipoChampiñon = new TipoChampiñon("Tajado");
+        ModificarTipoChampiñonBandejaChampiñon command = new ModificarTipoChampiñonBandejaChampiñon(idProduccionDia, idBandejaChampiñon, tipoChampiñon);
+        ModificarTipoChampiñonBandejaChampiñonUseCase useCase = new ModificarTipoChampiñonBandejaChampiñonUseCase();
 
         when(repository.getEventsBy("produccion")).thenReturn(events());
         useCase.addRepository(repository);
@@ -51,10 +50,10 @@ class ModificarTipoBandejaBandejaChampiñonUseCaseTest {
                 .setIdentifyExecutor(idProduccionDia.value())
                 .syncExecutor(useCase, new RequestCommand<>(command))
                 .orElseThrow();
-        ModificadoTipoBandejaBandejaChampiñon event = (ModificadoTipoBandejaBandejaChampiñon) events.getDomainEvents().get(0);
+        ModificadoTipoChampiñonBandejaChampiñon event = (ModificadoTipoChampiñonBandejaChampiñon) events.getDomainEvents().get(0);
 
         Assertions.assertEquals("bandeja", event.getIdBandejaChampiñon().value());
-        Assertions.assertEquals("150", event.getTipoBandeja().value());
+        Assertions.assertEquals("Tajado", event.getTipoChampiñon().value());
         Mockito.verify(repository).getEventsBy("produccion");
     }
 
@@ -64,8 +63,10 @@ class ModificarTipoBandejaBandejaChampiñonUseCaseTest {
                 new TipoEmpaqueBandeja("Canasta")
         ), new AgregadaBandejaChampiñon(
                 IdBandejaChampiñon.of("bandeja"),
-                new TipoBandeja("500"),
+                new TipoBandeja("150"),
                 new TipoChampiñon("Entero"),
-                new TamañoChampiñon("Grande")));
+                new TamañoChampiñon("Grande")
+
+        ));
     }
 }

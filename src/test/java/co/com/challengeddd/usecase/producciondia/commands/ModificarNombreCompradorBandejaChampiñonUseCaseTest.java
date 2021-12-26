@@ -1,17 +1,18 @@
-package co.com.challengeddd.usecase.producciondia;
+package co.com.challengeddd.usecase.producciondia.commands;
 
+import co.com.challengeddd.domain.general.values.Nombre;
 import co.com.challengeddd.domain.general.values.TamañoChampiñon;
 import co.com.challengeddd.domain.general.values.TipoBandeja;
 import co.com.challengeddd.domain.jefe.values.IdJefe;
-import co.com.challengeddd.domain.producciondia.commands.ModificarTipoChampiñonBandejaChampiñon;
+import co.com.challengeddd.domain.producciondia.commands.ModificarNombreCompradorBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.events.AgregadaBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.events.CreadaProduccionDia;
-import co.com.challengeddd.domain.producciondia.events.ModificadoTipoChampiñonBandejaChampiñon;
+import co.com.challengeddd.domain.producciondia.events.ModificadoNombreCompradorBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.values.IdBandejaChampiñon;
 import co.com.challengeddd.domain.producciondia.values.IdProduccionDia;
 import co.com.challengeddd.domain.producciondia.values.TipoChampiñon;
 import co.com.challengeddd.domain.producciondia.values.TipoEmpaqueBandeja;
-import co.com.challengeddd.usecase.produccionDia.ModificarTipoChampiñonBandejaChampiñonUseCase;
+import co.com.challengeddd.usecase.produccionDia.commands.ModificarNombreCompradorBandejaChampiñonUseCase;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
@@ -29,19 +30,19 @@ import java.util.List;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class ModificarTipoChampiñonBandejaChampiñonUseCaseTest {
+class ModificarNombreCompradorBandejaChampiñonUseCaseTest {
 
     @Mock
     DomainEventRepository repository;
 
     @Test
-    void modificarTipoChampiñonBandejaChampiñon(){
-
+    void modificarNombreCompradorBandejaChampiñon(){
         IdProduccionDia idProduccionDia = IdProduccionDia.of("produccion");
         IdBandejaChampiñon idBandejaChampiñon = IdBandejaChampiñon.of("bandeja");
-        TipoChampiñon tipoChampiñon = new TipoChampiñon("Tajado");
-        ModificarTipoChampiñonBandejaChampiñon command = new ModificarTipoChampiñonBandejaChampiñon(idProduccionDia, idBandejaChampiñon, tipoChampiñon);
-        ModificarTipoChampiñonBandejaChampiñonUseCase useCase = new ModificarTipoChampiñonBandejaChampiñonUseCase();
+        Nombre nombreComprador = new Nombre("Lucas");
+
+        ModificarNombreCompradorBandejaChampiñon command = new ModificarNombreCompradorBandejaChampiñon(idProduccionDia, idBandejaChampiñon, nombreComprador);
+        ModificarNombreCompradorBandejaChampiñonUseCase useCase = new ModificarNombreCompradorBandejaChampiñonUseCase();
 
         when(repository.getEventsBy("produccion")).thenReturn(events());
         useCase.addRepository(repository);
@@ -50,10 +51,11 @@ class ModificarTipoChampiñonBandejaChampiñonUseCaseTest {
                 .setIdentifyExecutor(idProduccionDia.value())
                 .syncExecutor(useCase, new RequestCommand<>(command))
                 .orElseThrow();
-        ModificadoTipoChampiñonBandejaChampiñon event = (ModificadoTipoChampiñonBandejaChampiñon) events.getDomainEvents().get(0);
+
+        ModificadoNombreCompradorBandejaChampiñon event = (ModificadoNombreCompradorBandejaChampiñon) events.getDomainEvents().get(0);
 
         Assertions.assertEquals("bandeja", event.getIdBandejaChampiñon().value());
-        Assertions.assertEquals("Tajado", event.getTipoChampiñon().value());
+        Assertions.assertEquals("Lucas", event.getNombreComprador().value());
         Mockito.verify(repository).getEventsBy("produccion");
     }
 
@@ -63,10 +65,9 @@ class ModificarTipoChampiñonBandejaChampiñonUseCaseTest {
                 new TipoEmpaqueBandeja("Canasta")
         ), new AgregadaBandejaChampiñon(
                 IdBandejaChampiñon.of("bandeja"),
-                new TipoBandeja("150"),
+                new TipoBandeja("500"),
                 new TipoChampiñon("Entero"),
-                new TamañoChampiñon("Grande")
-
+                new TamañoChampiñon("Mediano")
         ));
     }
 }
